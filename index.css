@@ -5,79 +5,79 @@ h2,
 h3,
 nav,
 footer {
-  font-family: Georgia, Cambria, 'Times New Roman', serif;
+	font-family: Georgia, Cambria, "Times New Roman", serif;
 }
 body {
-  font-family: 'Lucida Sans', Verdana, Arial, sans-serif;
-  font-size: 80%;
+	font-family: "Lucida Sans", Verdana, Arial, sans-serif;
+	font-size: 80%;
 }
 
 div#searchBox,
 div#listBox {
-  margin: 0.25em auto;
-  background-color: #ebf4fb;
-  padding: 1em;
-  border: 1pt solid #95bef0;
-  width: 80%;
+	margin: 0.25em auto;
+	background-color: #ebf4fb;
+	padding: 1em;
+	border: 1pt solid #95bef0;
+	width: 80%;
 }
 div#searchBox {
-  margin-top: 1em;
+	margin-top: 1em;
 }
 div#listBox {
-  margin-top: 1em;
-  background-color: #fafcff;
+	margin-top: 1em;
+	background-color: #fafcff;
 }
 
 table {
-  border: collapse;
-  border-spacing: 0;
+	border: collapse;
+	border-spacing: 0;
 
-  width: 100%; /*prevent shrinking*/
+	width: 100%; /*prevent shrinking*/
 }
 
 table tbody td {
-  border-top: 1pt solid #95bef0;
-  line-height: 1.5em;
-  vertical-align: middle;
-  padding: 0.5em 0.75em;
+	border-top: 1pt solid #95bef0;
+	line-height: 1.5em;
+	vertical-align: middle;
+	padding: 0.5em 0.75em;
 }
 table thead th {
-  text-align: left;
-  padding: 0.25em 0.75em;
+	text-align: left;
+	padding: 0.25em 0.75em;
 }
 table thead {
-  background-color: #ebf4fb;
+	background-color: #ebf4fb;
 }
 
 table tbody td:first-child {
-  text-align: center;
-  padding: 0.5em 0em;
+	text-align: center;
+	padding: 0.5em 0em;
 }
 
 caption {
-  background-color: #95bef0;
-  padding: 0.5em 0.5em;
-  font-weight: bold;
-  font-size: 1.2em;
+	background-color: #95bef0;
+	padding: 0.5em 0.5em;
+	font-weight: bold;
+	font-size: 1.2em;
 }
 
 /* My CSS */
 
 .moveRight {
-  float: right;
-  margin-left: 0.2em;
+	float: right;
+	margin-left: 0.2em;
 }
 
 span#spanNumber {
-  font-size: 1.2em;
-  margin-left: 0.2em;
+	font-size: 1.2em;
+	margin-left: 0.2em;
 }
 
 .star {
-  float: right;
+	float: right;
 }
 
 div#modeBox {
-  position: relative;
-  left: 50%;
+	position: relative;
+	left: 50%;
 }

@@ -1,91 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head lang="en">
-    <meta charset="utf-8" />
-    <title>COMP5347 Assignment One</title>
-    <link rel="stylesheet" href="index.css" />
-    <script type="text/javascript" src="index.js"></script>
-  </head>
-  <body>
-    <div id="modeBox">
-      <span class="moveCenter">Dark Mode</span>
-      <input
-        id="darkMode"
-        class="moveCenter"
-        type="checkbox"
-        class="checkbox"
-      />
-    </div>
+	<head lang="en">
+		<meta charset="utf-8" />
+		<title>COMP5347 Assignment One</title>
+		<link rel="stylesheet" href="index.css" />
+		<script type="text/javascript" src="index.js"></script>
+	</head>
+	<body>
+		<!-- Dark mode box -->
+		<div id="modeBox">
+			<span class="moveCenter">Dark Mode</span>
+			<input
+				id="darkMode"
+				class="moveCenter"
+				type="checkbox"
+				class="checkbox"
+			/>
+		</div>
 
-    <form method="get" action="">
-      <div id="searchBox">
-        <input
-          type="text"
-          id="searchText"
-          placeholder="Search..."
-          name="searchText"
-        />
-        <input
-          type="button"
-          id="searchButton"
-          value="Search"
-          name="searchButton"
-        />
-        <select id="categories">
-          <option>Category</option>
-        </select>
+		<!-- Search box -->
+		<div id="searchBox">
+			<!-- Left elements -->
+			<input
+				type="text"
+				id="searchText"
+				placeholder="Search..."
+				name="searchText"
+			/>
+			<input
+				type="button"
+				id="searchButton"
+				value="Search"
+				name="searchButton"
+			/>
+			<select id="categories">
+				<option>Category</option>
+			</select>
+			<input
+				type="button"
+				id="filterButton"
+				value="Filter"
+				name="filterButton"
+			/>
+			<!-- Right elements -->
+			<span class="moveRight" id="cartNum">(0)</span>
+			<img
+				class="moveRight"
+				id="cart"
+				src="./images/shopping_cart.png"
+				height="22"
+				width="22"
+			/>
+			<input
+				type="button"
+				class="moveRight"
+				id="resetButton"
+				name="resetButton"
+				value="Reset the Cart"
+			/>
+			<input
+				type="button"
+				class="moveRight"
+				id="addButton"
+				name="addButton"
+				value="Add to Cart"
+			/>
+		</div>
 
-        <input
-          type="button"
-          id="filterButton"
-          value="Filter"
-          name="filterButton"
-        />
-        <!--elements to the right of the search bar -->
-        <span class="moveRight" id="cartNum">(0)</span>
-        <!-- -->
-        <img
-          class="moveRight"
-          id="cart"
-          src="./images/shopping_cart.png"
-          height="22"
-          width="22"
-        />
-        <input
-          type="button"
-          class="moveRight"
-          id="resetButton"
-          name="resetButton"
-          value="Reset the Cart"
-        />
-        <input
-          type="button"
-          class="moveRight"
-          id="addButton"
-          name="addButton"
-          value="Add to Cart"
-        />
-      </div>
-      <div id="listBox">
-        <table>
-          <caption></caption>
-          <thead id="thread">
-            <tr>
-              <th colspan="3">Title</th>
-              <th>Aurthors</th>
-              <th>Year</th>
-              <th>Price</th>
-              <th>Publisher</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr id="notFound">
-              <td colspan="8">Book(s) not found.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </form>
-  </body>
+		<!-- List box -->
+		<div id="listBox">
+			<table>
+				<caption></caption>
+				<thead id="thread">
+					<tr>
+						<th colspan="3">Title</th>
+						<th>Authors</th>
+						<th>Year</th>
+						<th>Price</th>
+						<th>Publisher</th>
+						<th>Category</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="notFound">
+						<td colspan="8">Book(s) not found.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
 </html>
