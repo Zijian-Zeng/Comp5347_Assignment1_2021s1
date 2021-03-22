@@ -1,28 +1,4 @@
-const sampleData = [
-	{
-		img: "images/01.jpg",
-		title: "The Arts: A Visual Encyclopedia",
-		authors: "DK",
-		year: "2017",
-		price: "13.99",
-		rating: "3",
-		publisher: "DK Children",
-		category: "Art",
-	},
-	{
-		img: "images/11.jpg",
-		title:
-			"The Lost Art of Reading Nature's Signs: Use Outdoor Clues to Find Your Way, Predict the Weather, Locate Water, Track Animals―and Other Forgotten Skills (Natural Navigation)",
-		authors: "Tristan Gooley",
-		year: "2015",
-		price: "11.52",
-		rating: "4",
-		publisher: "The Experiment",
-		category: "Art",
-	},
-];
-
-let bookList = sampleData;
+let bookList = [];
 const cart = [];
 
 /**
@@ -163,23 +139,56 @@ const SearchAction = (searchButtonNode, searchTextNode, darkModeNode) => {
 };
 
 /**
+ * Find out the selected item.
+ */
+const findSelectedItem = (tbodyNode) => {
+	let selected = undefined;
+	tbodyNode.childNodes.forEach((rowNode) => {
+		//Find out the rows with a valid checkbox
+		if (rowNode.nodeType !== Node.ELEMENT_NODE) return;
+		const checkboxNode = rowNode.querySelector(".checkbox");
+		if (!checkboxNode) return;
+
+		//Return the selected item
+		if (checkboxNode.checked) {
+			checkboxNode.checked = false;
+			selected = rowNode;
+		}
+	});
+	//Otherwise return undefined.
+	return selected;
+};
+
+/**
  * Add to Cart Action
  */
 const AddToCartAction = (addButtonNode, cartNode, tbodyNode) => {
 	addButtonNode.onclick = () => {
-		tbodyNode.childNodes.forEach((rowNode) => {
-			//Find out the rows with a valid checkbox
-			if (rowNode.nodeType !== Node.ELEMENT_NODE) return;
-			const checkboxNode = rowNode.querySelector(".checkbox");
-			if (!checkboxNode) return;
+		//Find out the selected item.
+		const selected = findSelectedItem(tbodyNode);
 
-			//Add selected items to cart
-			if (checkboxNode.checked) {
-				checkboxNode.checked = false;
-				cart.push(rowNode);
+		if (selected) {
+			//Ask for the quantity.
+			let quantity;
+			let quantityInput = window.prompt("Quantity of the selected item:");
+
+			//Validate the input.
+			quantity = parseInt(quantityInput);
+			if (/[a-zA-Z.]/.test(quantityInput)) quantity = undefined;
+
+			if (quantity) {
+				let i = 0;
+				//Add the item(s) to the cart.
+				for (; i < quantity; i++) {
+					cart.push(selected);
+				}
+				cartNode.innerHTML = "(" + cart.length + ")";
+			} else {
+				window.alert("Invalid input.");
 			}
-		});
-		cartNode.innerHTML = "(" + cart.length + ")";
+		} else {
+			window.alert("No item selected.");
+		}
 	};
 };
 
@@ -188,7 +197,7 @@ const AddToCartAction = (addButtonNode, cartNode, tbodyNode) => {
  */
 const EmptyCartAction = (resetButtonNode, tbodyNode, cartNode) => {
 	resetButtonNode.onclick = () => {
-		if (confirm("Are you sure you want to empty your cart?")) {
+		if (confirm("Is it okay to reset the cart?")) {
 			cart.splice(0, cart.length);
 			clearCheckbox(tbodyNode);
 			cartNode.innerHTML = "(" + cart.length + ")";
